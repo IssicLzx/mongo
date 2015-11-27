@@ -33,12 +33,22 @@ db.once('open',function(){
         /*
          update
          */
-        function(res, cb){
-            var blogEntity = new blogModel({title:'标题', content:'内容',date: new Date()});
+        function(docs, cb){
+            var blogEntity = docs[0];
+            blogEntity.title = '标题2';
+            blogEntity.date = new Date();
             blogEntity.save(function(err, res){
                 if (! err)
                     console.log('save success');
                 cb(err, res);
+            });
+        },
+        function(res,cb){
+
+            blogModel.find(function(err, docs) {
+                if (err) console.log(err);
+                console.log('docs :',docs);
+                cb(err , docs);
             });
         },
         /*
