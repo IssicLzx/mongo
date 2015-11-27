@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-mongo-test
-=======
-# mongo
->>>>>>> master-2
+## mongo-test
